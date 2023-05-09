@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="demo3.Usercontrols.ProductControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:demo3.Usercontrols"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border  Grid.Row="1" BorderThickness="2" BorderBrush="Black" Margin="5">
+            <Grid x:Name="ProductGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="ImageProduct" Width="150" Height="145" HorizontalAlignment="Left"/>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Left">
+                    <TextBlock>
+                        <Run Text="Наименование продукта: "/>
+                        <Run Text="{Binding Productname}"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="Описание: "/>
+                        <Run Text="{Binding Productdescription}"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="производитель: "/>
+                        <Run Text="{Binding ManufName, Mode=OneWay}"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="Цена: "/>
+                        <Run Text="{Binding Productprice}"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="Скидка: "/>
+                        <Run Text="{Binding Productdiscount}"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="Старая цена: "/>
+                        <Run TextDecorations="Strikethrough" x:Name="WoDiscPrice"/>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
